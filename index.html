@@ -1,10 +1,50 @@
 <!-- Lindsay Hooton -->
-<!doctype html>  
+<!DOCTYPE html>  
 <html lang="en">
 <head>
+    <meta charset="utf-8" />
     <title>GiftAid</title>
+    <meta name="description" content="Gift-Aid. Your master gift list." />
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+    <meta name="keyowrds" content="html5, mobile development, Gift-Aid, gift giving, gift reminder" />
+    <meta name="robots" content="index, follow" />
+    <link href="css/jqmobile.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    
+    <section id=home>
+	<header>
+            <h1>Gift Aid</h1>
+            <p>Your Master Gift List!</p>
+        </header>
+            <section>
+                <button type="button" id="addPeople">Start Adding People Now!</a></button>
+                <div>
+                    <input type="text" name="search" id="search" value="" class="grey" /><input type="submit" value="Search" id="searchB" />
+                </div>
+            </section>
+            <section>
+                <p>Browse By:</p>
+                <ul>
+                    <div>Name</div>
+                    <div>Birthday</div>
+                    <div>Relation</div>
+                    <div>Interests</div>
+                </ul>
+            </section>
+            
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                </ul>
+            </nav>
+        </footer>
+            
+    </section>
+    <script src="js/libs/jqmobile.js" type="text/javascript"></script>
+    <script src="js/libs/jquery.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>

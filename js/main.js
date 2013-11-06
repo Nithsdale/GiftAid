@@ -1,12 +1,12 @@
 // Lindsay Hooton
 
-window.addEventListener("DOMContentLoaded", function(){
-
+//window.addEventListener("DOMContentLoaded", function(){
+$(document).ready(function(){
 //option selector for relation
-var relations = ["Select One", "Grandparent", "Parent", "Sibling", "Significant Other", "Child", "Friend", "Co-Worker", "Other"];
+var relations = $["Select One", "Grandparent", "Parent", "Sibling", "Significant Other", "Child", "Friend", "Co-Worker", "Other"];
 function makeOptionSelector (){
-    var selectTag = document.getElementsByTagName("form"),
-        selectOpTag = document.getElementById('relation'),
+    var selectTag = $("form"),
+        selectOpTag = $('#relation'),
         makeOption = document.createElement('select');
         makeOption.setAttribute("id", "relation");
     for (var i=0, j=relations.length; i<j; i++){

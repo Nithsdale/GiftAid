@@ -1,27 +1,27 @@
 // Lindsay Hooton
 
-//window.addEventListener("DOMContentLoaded", function(){
 $(document).ready(function(){
-//option selector for relation
+    
+//dynamicly creating an option to select one of the relations
 var relations = $["Select One", "Grandparent", "Parent", "Sibling", "Significant Other", "Child", "Friend", "Co-Worker", "Other"];
 function makeOptionSelector (){
     var selectTag = $("form"),
         selectOpTag = $('#relation'),
-        makeOption = document.createElement('select');
-        makeOption.setAttribute("id", "relation");
+        makeOption = $('select').appendTo('relation');
+        makeOption.attr("id", "relation");
     for (var i=0, j=relations.length; i<j; i++){
-        var makeSelections = document.createElement('option');
+        var makeSelections = $('<option>');
         var optionText = relations[i];
-            makeSelections.setAttribute("value", optionText);
+            makeSelections.attr("value", optionText);
             makeSelections.innerHTML = optionText;
-            makeOption.appendChild(makeSelections);
+            makeOption.appendTo(makeSelections);
     };
-    selectOpTag.appendChild(makeOption);
+    selectOpTag.appendTo(makeOption);
 };
 makeOptionSelector();
 console.log(makeOptionSelector);
 
-//save the checked interests
+//save interests from the check box
 var saveChecked = function(){
     var checkedInterests = document.forms[0].interest;
     var checkedValues = [];
@@ -42,40 +42,40 @@ var addChecked = function(){
     for (i=0; i<checkedInterests.length; i++) {
         for (j=0; j<myData.lenght; j++) {
             if (checkedInterests[i].value === myData) {
-                checkedInterests[i].setAttribute("checked", "checked");
+                checkedInterests[i].attr("checked", "checked");
             }
         }
     }
 };
 
-//get the data entered in the text fields and create sub lists
+//get the data entered in the fields and create sub lists
 function getData () {
     showHide("on");
     if (localStorage.length === 0) {
         alert("You haven't added anyone! So we've added some data for testing.");
         defaultAdded();
     }
-    var makeDiv = document.createElement('div');
-    makeDiv.setAttribute("id", "items");
-    var makeList = document.createElement('ul');
-    makeDiv.appendChild(makeList);
-    document.body.appendChild(makeDiv);
-    document.getElementById('items').style.display = "block";
+    var makeDiv = $("<div>");
+    makeDiv.attr("id", "items");
+    var makeList = $("<ul>");
+    makeDiv.appendTo(makeList);
+    document.body.appendTo(makeDiv);
+    $('#items').style.display = "block";
     for (var i=0, j=localStorage.length; i<j; i++) {
-        var makeLi = document.createElement('li');
-        var buttonLi = document.createElement('li');
-        makeList.appendChild(makeLi);
+        var makeLi = $("<li>");
+        var buttonLi = $("<li>");
+        makeList.appendTo(makeLi);
         var key = localStorage.key(i);
         var value = localStorage.getItem(key);
         var object = JSON.parse(value);
-        var makeSub = document.createElement('ul');
-        makeLi.appendChild(makeSub);
+        var makeSub = $("<ul>");
+        makeLi.appendTo(makeSub);
         for (var n in object) {
-            var makeSubList = document.createElement('li');
-            makeSub.appendChild(makeSubList);
+            var makeSubList = $("<li>");
+            makeSub.appendTo(makeSubList);
             var subText = object[n][0]+ " " +object[n][1];
             makeSubList.innerHTML = subText;
-            makeSubList.appendChild(buttonLi);
+            makeSubList.appendTo(buttonLi);
         };
         makeButtons(localStorage.key(i), buttonLi);
     };
@@ -83,8 +83,7 @@ function getData () {
 console.log(getData);
 
 //on click get stored data 
-var displayData = document.getElementById("displayData"); 
-displayData.addEventListener("click", getData);
+$('#displayData').on("click", getData);
 console.log(displayData);
 
 //get the values from the input fields and save
@@ -109,27 +108,26 @@ function storeData(key){
 console.log(storeData);
 
 //on click store data
-var submit = document.getElementById('submit');
-submit.addEventListener("click", storeData);
+$('#submit').on("click", storeData);
 console.log(submit);
 
 //turns the submit button into delete and edit buttons while displaying data
 function makeButtons(key, buttonLi) {
-    var editButton = document.createElement('a');
+    var editButton = $("<a>");
     editButton.href = "#";
     editButton.key = key;
     var editButtonText = "Edit ";
-    editButton.addEventListener("click", editItem);
+    editButton.on("click", editItem);
     editButton.innerHTML = editButtonText;
-    buttonLi.appendChild(editButton);
+    buttonLi.appendTo(editButton);
     
-    var deleteButton = document.createElement('a');
+    var deleteButton = $("<a>");
     deleteButton.href = "#";
     deleteButton.key = key;
     var deleteButtonText = "| Delete";
-    deleteButton.addEventListener("click", deleteItem);
+    deleteButton.on("click", deleteItem);
     deleteButton.innerHTML = deleteButtonText;
-    buttonLi.appendChild(deleteButton);
+    buttonLi.appendTo(deleteButton);
 };
 console.log(makeButtons);
 
@@ -137,7 +135,7 @@ console.log(makeButtons);
 function deleteItem() {
     var ask = confirm("Are you sure you want to delete?");
     if (ask) {
-        localStorage.removeItem(this.key);
+        localStorage.remove(this.key);
         alert("Information deleted.");
         window.location.reload();
     }else{
@@ -160,10 +158,10 @@ function editItem(){
     $('#priceRange').value = items.priceRange[1];
     $('#ideas').value = items.ideas[""];
     
-    save.removeEventListener("click", storeData);
-    document.getElementById('submit').value = "Edit";
-    var editSubmit = document.getElementById('submit');
-    editSubmit.addEventListener("click", validate);
+    save.off("click", storeData);
+    $('#submit').value = "Edit";
+    var editSubmit = $('#submit');
+    editSubmit.on("click", validate);
     editSubmit.key = this.key;
 };
 console.log(editItem);
@@ -186,23 +184,22 @@ var clearAllData = function (){
 };
 console.log(clearAllData);
 
-//on click clear all data
-var clearData = document.getElementById("clearData");  
-clearData.addEventListener("click", clearAllData);
+//on click clear all data 
+$("#clearData").on("click", clearAllData);
 console.log(clearData);
 
 //show and hide fields when displaying data
 function showHide (n){
     switch(n) {
         case "on":
-            document.getElementById('submit').style.display = "none";
-            document.getElementById('fieldOne').style.display = "none";
-            document.getElementById('fieldTwo').style.display = "none";
+            $('#submit').style.display = "none";
+            $('#fieldOne').style.display = "none";
+            $('#fieldTwo').style.display = "none";
             break;
         case "off":
-            document.getElementById('submit').style.display = "block";
-            document.getElementById('fieldOne').style.display = "block";
-            document.getElementById('fieldTwo').style.display = "block";
+            $('#submit').style.display = "block";
+            $('#fieldOne').style.display = "block";
+            $('#fieldTwo').style.display = "block";
             break;
         default:
             return false;

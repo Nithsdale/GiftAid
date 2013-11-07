@@ -70,7 +70,6 @@ function getData () {
         var object = JSON.parse(value);
         var makeSub = document.createElement('ul');
         makeLi.appendChild(makeSub);
-        //getImage(makeSub, iconName);
         for (var n in object) {
             var makeSubList = document.createElement('li');
             makeSub.appendChild(makeSubList);
@@ -96,23 +95,18 @@ function storeData(key){
         id = key;
     }
     var items = {};
-        items.name = ["Name:", document.getElementById('name').value];
-        items.email = ["E-Mail:", document.getElementById('email').value];
-        items.phone = ["Phone:", document.getElementById('phone').value];
-        items.bday = ["Birthday:", document.getElementById('bday').value];
-        items.relation = ["Relation:", document.getElementById('relation').value];
-        items.interests = ["Interests:", document.getElementById('interests').value];
-        items.price = ["Price Range:", document.getElementById('priceRange').value];
-        items.ideas = ["Quick Ideas:", document.getElementById('ideas').value];
-    localStorage.setItem(id, JSON.stringify(items));
-    alert("Sucessfully Added");
+        items.name = ["Name:", $('#name').val()];
+        items.email = ["E-Mail:", $('#email').val()];
+        items.phone = ["Phone:", $('#phone').val()];
+        items.bday = ["Birthday:", $('#bday').val()];
+        items.relation = ["Relation:", $('#relation').val()];
+        items.interests = ["Interests:", $('#interests').val()];
+        items.price = ["Price Range:", $('#priceRange').val()];
+        items.ideas = ["Quick Ideas:", $('#ideas').val()];
+        localStorage.setItem(id, JSON.stringify(items));
+        alert("Sucessfully Added");
 };
 console.log(storeData);
-
-//on click save data
-var save = document.getElementById('submit');
-save.addEventListener("click", validate);
-console.log(save);
 
 //on click store data
 var submit = document.getElementById('submit');
@@ -157,14 +151,14 @@ function editItem(){
     var value = localStorage.getItem(this.key);
     var items = JSON.parse(value);
     showHide("on");
-    document.getElementById('name').value = items.name[1];
-    document.getElementById('email').value = items.email[1];
-    document.getElementById('phone').value = items.phone[1];
-    document.getElementById('bday').value = items.bday[1];
-    document.getElementById('relation').value = items.relation[1];
-    document.getElementById('interests').value = items.interests[1];
-    document.getElementById('priceRange').value = items.priceRange[1];
-    document.getElementById('ideas').value = items.ideas[""];
+    $('#name').value = items.name[1];
+    $('#email').value = items.email[1];
+    $('#phone').value = items.phone[1];
+    $('#bday').value = items.bday[1];
+    $('#relation').value = items.relation[1];
+    $('#interests').value = items.interests[1];
+    $('#priceRange').value = items.priceRange[1];
+    $('#ideas').value = items.ideas[""];
     
     save.removeEventListener("click", storeData);
     document.getElementById('submit').value = "Edit";
@@ -174,54 +168,21 @@ function editItem(){
 };
 console.log(editItem);
 
-//validate the input fields provide error message when blank
-function validate(e) {
-    var getName = document.getElementById('name');
-    var getBday = document.getElementById('bday');
-    
-    errorMessage.innerHTML = "";
-        getName.style.border = "1px solid black";
-        getBday.style.border = "1px solid black";
-
-    var messages = [];
-    if (getName.value==="") {
-        var nameError = "Please enter a name.";
-        getName.style.border = "1px solid red";
-        messages.push(nameError);
-        alert("Please add the required data.");
-    }
-    
-    if (getBday.value==="") {
-        var bdayError = "Please enter a date.";
-        getBday.style.border = "1px solid red";
-        messages.push(bdayError);
-    }
-    
-    if (messages.length >= 1) {
-        for (var i=0, j=messages.length; i < j; i++) {
-            var text = document.createElement('li');
-            text.innerHTML = messages[i];
-            errorMessage.appendChild(text);
-        }
-        e.preventDefault();
-        return false;
-    }else{
-        storeData(this.key);
-    }
-};
-console.log(validate);
-var errorMessage = document.getElementById('errors');
-
 //clears all the data
-function clearAllData(){
+var clearAllData = function (){
     if (localStorage.length === 0) {
         alert("No Information to clear.");
     } else {
-        localStorage.clear();
-        alert("All Information has been cleared.");
-        window.location.reload();
-        return false;
-    };
+        var clear = confirm("Are you sure you want to delete all information?");
+                if (clear) {
+                     localStorage.clear();
+                     alert("All information has been deleted.");
+                     window.location.reload();
+                     return false;
+                }else{
+                     alert("Your information is still saved.");
+                }
+    }
 };
 console.log(clearAllData);
 

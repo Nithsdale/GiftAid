@@ -3,7 +3,7 @@
 $(document).ready(function(){
     
 //dynamicly creating an option to select one of the relations
-var relations = $["Select One", "Grandparent", "Parent", "Sibling", "Significant Other", "Child", "Friend", "Co-Worker", "Other"];
+var relations = ["Select One", "Grandparent", "Parent", "Sibling", "Significant Other", "Child", "Friend", "Co-Worker", "Other"];
 function makeOptionSelector (){
     var selectTag = $("form"),
         selectOpTag = $('#relation'),
@@ -59,8 +59,8 @@ function getData () {
     makeDiv.attr("id", "items");
     var makeList = $("<ul>");
     makeDiv.appendTo(makeList);
-    document.body.appendTo(makeDiv);
-    $('#items').style.display = "block";
+    $('<div>').appendTo(makeDiv);
+    $('#items').css("display","block");
     for (var i=0, j=localStorage.length; i<j; i++) {
         var makeLi = $("<li>");
         var buttonLi = $("<li>");
@@ -84,7 +84,7 @@ console.log(getData);
 
 //on click get stored data 
 $('#displayData').on("click", getData);
-console.log(displayData);
+//console.log(displayData);
 
 //get the values from the input fields and save
 function storeData(key){
@@ -109,7 +109,7 @@ console.log(storeData);
 
 //on click store data
 $('#submit').on("click", storeData);
-console.log(submit);
+//console.log(submit);
 
 //turns the submit button into delete and edit buttons while displaying data
 function makeButtons(key, buttonLi) {
@@ -147,7 +147,7 @@ console.log(deleteItem);
 //edit the items of a persons information
 function editItem(){
     var value = localStorage.getItem(this.key);
-    var items = JSON.parse(value);
+    var items = $.getJSON().serializeArray();
     showHide("on");
     $('#name').value = items.name[1];
     $('#email').value = items.email[1];
@@ -186,20 +186,20 @@ console.log(clearAllData);
 
 //on click clear all data 
 $("#clearData").on("click", clearAllData);
-console.log(clearData);
+//console.log(clearData);
 
 //show and hide fields when displaying data
 function showHide (n){
     switch(n) {
         case "on":
-            $('#submit').style.display = "none";
-            $('#fieldOne').style.display = "none";
-            $('#fieldTwo').style.display = "none";
+            $('#submit').hide();
+            $('#fieldOne').hide();
+            $('#fieldTwo').hide();
             break;
         case "off":
-            $('#submit').style.display = "block";
-            $('#fieldOne').style.display = "block";
-            $('#fieldTwo').style.display = "block";
+            $('#submit').css("display","block");
+            $('#fieldOne').css("display","block");
+            $('#fieldTwo').css("display","block");
             break;
         default:
             return false;
@@ -212,8 +212,12 @@ function defaultAdded() {
     for (var n in json){
         var id = Math.floor(Math.random()*10002);
         localStorage.setItem(id, JSON.stringify(json[n]));
+        $.getJSON().serializeArray();
     }
 };
 console.log(defaultAdded);
+
+var data = $.parseXML(xml);
+$('#xml').on('click', data);
 
 });

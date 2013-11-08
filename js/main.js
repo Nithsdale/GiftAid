@@ -147,7 +147,7 @@ console.log(deleteItem);
 //edit the items of a persons information
 function editItem(){
     var value = localStorage.getItem(this.key);
-    var items = $.getJSON().serializeArray();
+    var items = JSON.parse(value);
     showHide("on");
     $('#name').value = items.name[1];
     $('#email').value = items.email[1];
@@ -212,12 +212,11 @@ function defaultAdded() {
     for (var n in json){
         var id = Math.floor(Math.random()*10002);
         localStorage.setItem(id, JSON.stringify(json[n]));
-        $.getJSON().serializeArray();
     }
 };
 console.log(defaultAdded);
 
-var data = $.parseXML(xml);
+var data = $.parseXML();
 $('#xml').on('click', data);
 
 });

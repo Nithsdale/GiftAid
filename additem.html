@@ -22,14 +22,13 @@
     <form action="#" method="post">
       <a href= "" value=Reset id="clearData">Clear Data</a> | <a href= "#" id="displayData">Display Data</a>
       <fieldset id="fieldOne">
-        <legend id="legendOne">Add the Lucky Person</legend>
+        <!-- <legend id="legendOne">Add the Lucky Person</legend> -->
         <ul id="errors"></ul>
           <ul>
             <div><label for="name">Name:</label><input type="text" id="name" /></div>
-            <li><label for="email">E-Mail:</label><input type="email" id="email" /></li>
-            <li><label for="phone">Phone:</label><input type="text" id="phone" /></li>
-            <li><label for="bday">Birthday:</label><input type="date" id="bday" /></li>
-            <li>
+            <div><label for="email">Email:</label><input type="email" id="email" /></div>
+            <div><label for="phone">Phone:</label><input type="text" id="phone" /></div>
+            <div><label for="bday">Birthday:</label><input type="date" id="bday" /></div>
               <label for="relation">Relation:</label>
               <select id="relation">
                 <option value="SelectOne">Select One</option>
@@ -42,20 +41,19 @@
                 <option value="Co-worker">Co-worker</option>
                 <option value="Other">Other</option>
               </select>
-            </li>
           </ul>
-      </fieldset>
-      <fieldset id="fieldTwo">
-        <legend id="legendTwo">Ideas - Information</legend>
+      <!-- </fieldset>
+      <fieldset id="fieldTwo"> -->
+        <!-- <legend id="legendTwo">Ideas - Information</legend> -->
           <ul>
-            <li id="interests">Interests - Check all that apply</li>
-                <ul><input type="checkbox" id="movies" name="interest" value="Movies">Movies</ul>
-                <ul><input type="checkbox" id="books" name="interest" value="Books">Books</ul>
-                <ul><input type="checkbox" id="sports" name="interest" value="Sports">Sports</ul>
-                <ul><input type="checkbox" id="art" name="interest" value="Art">Art</ul>
-                <ul><input type="checkbox" id="games" name="interest" value="Games">Games</ul>
-            <li>Price Range<br /><input type="range" id="priceRange" name="Price Range" min="1" max="1000"></li>
-            <li label for="ideas">Quick Ideas:</label><br /><textarea id="ideas"></textarea></li>
+            <p id="interests">Interests - Check all that apply</p>
+              <input type="checkbox" id="movies" name="interest" value="Movies">Movies
+              <input type="checkbox" id="books" name="interest" value="Books">Books
+              <input type="checkbox" id="sports" name="interest" value="Sports">Sports
+              <input type="checkbox" id="art" name="interest" value="Art">Art
+              <input type="checkbox" id="games" name="interest" value="Games">Games
+            <p>Price Range<br /><input type="range" id="priceRange" name="Price Range" min="1" max="1000"></p>
+            <p label for="ideas">Quick Ideas:</label><br /><textarea id="ideas"></textarea></p>
           </ul>
       </fieldset>
       <input type="submit" value="Submit" id="submit" />

@@ -1,25 +1,24 @@
 // Lindsay Hooton
 
 $(document).ready(function(){
-    
+
 //dynamicly creating an option to select one of the relations
-var relations = ["Select One", "Grandparent", "Parent", "Sibling", "Significant Other", "Child", "Friend", "Co-Worker", "Other"];
-function makeOptionSelector (){
-    var selectTag = $("form"),
-        selectOpTag = $('#relation'),
-        makeOption = $('select').appendTo('relation');
-        makeOption.attr("id", "relation");
-    for (var i=0, j=relations.length; i<j; i++){
-        var makeSelections = $('<option>');
-        var optionText = relations[i];
-            makeSelections.attr("value", optionText);
-            makeSelections.innerHTML = optionText;
-            makeOption.appendTo(makeSelections);
-    };
-    selectOpTag.appendTo(makeOption);
-};
-makeOptionSelector();
-console.log(makeOptionSelector);
+var relations = [
+  {val : 0, text: 'Select One'},
+  {val : 1, text: 'Grandparent'},
+  {val : 2, text: 'Parent'},
+  {val : 3, text: 'Sibling'},
+  {val : 4, text: 'Significant Other'},
+  {val : 5, text: 'Child'},
+  {val : 6, text: 'Friend'},
+  {val : 7, text: 'Co-Worker'},
+  {val : 8, text: 'Other'}
+];
+
+var selectTag = $('<select>').appendTo('body');
+$(relations).each(function() {
+ selectTag.append($("<option>").attr('value',this.val).text(this.text));
+});
 
 //save interests from the check box
 var saveChecked = function(){
@@ -47,6 +46,7 @@ var addChecked = function(){
         }
     }
 };
+
 
 //get the data entered in the fields and create sub lists
 function getData () {

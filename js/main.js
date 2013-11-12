@@ -19,9 +19,10 @@ var selectTag = $('<select>').appendTo('body');
 $(relations).each(function() {
  selectTag.append($("<option>").attr('value',this.val).text(this.text));
 });
+console.log(selectTag);
 
 //save interests from the check box
-var saveChecked = function(){
+/*var saveChecked = function(){
     var checkedInterests = document.forms[0].interest;
     var checkedValues = [];
     for(i=0, j=checkedInterests.length; i<j; i++){
@@ -45,7 +46,18 @@ var addChecked = function(){
             }
         }
     }
-};
+};*/
+$("#submit").click(function(event){
+  event.preventDefault();
+
+  var checked = [];
+
+  $("input").map(function(){
+    checked.push($(this).val());
+  });
+
+  console.log(checked);
+});
 
 
 //get the data entered in the fields and create sub lists

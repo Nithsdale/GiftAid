@@ -246,8 +246,8 @@ function defaultAdded (){
         url: 'js/json.js',
         type: 'GET',
         dataType: 'json',
-        success: function(response){
-            console.log(response);
+        success: function(json){
+            console.log(json);
         }
     });
 };
@@ -257,8 +257,8 @@ $('#xml').on('click', function(){
         url: 'main.xml',
         type: 'GET',
         dataType: 'xml',
-        success: function(response){
-            console.log(response);
+        success: function(contact){
+            console.log(contact);
         }
     }); 
 });

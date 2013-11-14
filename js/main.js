@@ -1,6 +1,6 @@
 // Lindsay Hooton
 
-$(document).ready(function(){
+$(document).on('pageinit', function(){
 
 //dynamicly creating an option to select one of the relations
 var relations = [
@@ -177,7 +177,7 @@ function editItem(){
     editSubmit.key = this.key;
 };
 console.log(editItem);
-
+/*
 //clears all the data
 var clearAllData = function (){
     if (localStorage.length === 0) {
@@ -199,6 +199,18 @@ console.log(clearAllData);
 //on click clear all data 
 $("#clearData").on("click", clearAllData);
 //console.log(clearData);
+*/
+$('#clearData').on("click", function(){
+         if(localStorage.length === 0){
+                  alert("No Information to clear.");
+                  return;
+         }
+         else{
+                  localStorage.clear();
+                  alert("All information has been deleted.");
+                  window.location.reload();
+         };
+});
 
 //show and hide fields when displaying data
 function showHide (n){

@@ -22,31 +22,6 @@ $(relations).each(function() {
 console.log(selectTag);
 
 //save interests from the check box
-/*var saveChecked = function(){
-    var checkedInterests = document.forms[0].interest;
-    var checkedValues = [];
-    for(i=0, j=checkedInterests.length; i<j; i++){
-        if(checkedInterests[i].checked){
-            var checkedBox = checkedInterests[i].value;
-            checkedValues.push(checkedBox);
-        }
-    }
-    localStorage.setItem("test", JSON.stringify(checkedValues));
-};
-
-var addChecked = function(){
-    var checkedInterests = document.forms[0].interest;
-    var key = localStorage.key("test");
-    var value = localStorage.getItem(key);
-    var myData = JSON.parse(value);
-    for (i=0; i<checkedInterests.length; i++) {
-        for (j=0; j<myData.lenght; j++) {
-            if (checkedInterests[i].value === myData) {
-                checkedInterests[i].attr("checked", "checked");
-            }
-        }
-    }
-};*/
 $("#submit").click(function(event){
   event.preventDefault();
 
@@ -147,7 +122,7 @@ console.log(makeButtons);
 function deleteItem() {
     var ask = confirm("Are you sure you want to delete?");
     if (ask) {
-        localStorage.remove(this.key);
+        localStorage.removeItem(this.key);
         alert("Information deleted.");
         window.location.reload();
     }else{
@@ -177,39 +152,17 @@ function editItem(){
     editSubmit.key = this.key;
 };
 console.log(editItem);
-/*
-//clears all the data
-var clearAllData = function (){
-    if (localStorage.length === 0) {
-        alert("No Information to clear.");
-    } else {
-        var clear = confirm("Are you sure you want to delete all information?");
-                if (clear) {
-                     localStorage.clear();
-                     alert("All information has been deleted.");
-                     window.location.reload();
-                     return false;
-                }else{
-                     alert("Your information is still saved.");
-                }
-    }
-};
-console.log(clearAllData);
 
-//on click clear all data 
-$("#clearData").on("click", clearAllData);
-//console.log(clearData);
-*/
 $('#clearData').on("click", function(){
-         if(localStorage.length === 0){
-                  alert("No Information to clear.");
-                  return;
-         }
-         else{
-                  localStorage.clear();
-                  alert("All information has been deleted.");
-                  window.location.reload();
-         };
+    if(localStorage.length === 0){
+        alert("No Information to clear.");
+        return;
+    }
+    else{
+        localStorage.clear();
+        alert("All information has been deleted.");
+        window.location.reload();
+    };
 });
 
 //show and hide fields when displaying data
@@ -230,16 +183,7 @@ function showHide (n){
     }
 };
 console.log(showHide);
-/*
-//adds the dummy data from the json file
-function defaultAdded() {
-    for (var n in json){
-        var id = Math.floor(Math.random()*10002);
-        localStorage.setItem(id, JSON.stringify(json[n]));
-    }
-};
-console.log(defaultAdded);
-*/
+
 //function to add dummy data w/ ajax
 function defaultAdded (){
     $.ajax({
@@ -257,8 +201,8 @@ $('#xml').on('click', function(){
         url: 'main.xml',
         type: 'GET',
         dataType: 'xml',
-        success: function(contact){
-            console.log(contact);
+        success: function(main){
+            console.log(main);
         }
     }); 
 });

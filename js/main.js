@@ -230,7 +230,7 @@ function showHide (n){
     }
 };
 console.log(showHide);
-
+/*
 //adds the dummy data from the json file
 function defaultAdded() {
     for (var n in json){
@@ -239,8 +239,33 @@ function defaultAdded() {
     }
 };
 console.log(defaultAdded);
+*/
+//function to add dummy data w/ ajax
+function defaultAdded (){
+    $.ajax({
+        url: 'js/json.js',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response){
+            console.log(response);
+        }
+    });
+};
+//function for xml data w/ ajax
+$('#xml').on('click', function(){
+   $.ajax({
+        url: 'main.xml',
+        type: 'GET',
+        dataType: 'xml',
+        success: function(response){
+            console.log(response);
+        }
+    }); 
+});
 
-var data = $.parseXML();
-$('#xml').on('click', data);
 
+
+
+
+//end
 });

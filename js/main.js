@@ -53,7 +53,7 @@ function getData () {
         makeList.appendTo(makeLi);
         var key = localStorage.key(i);
         var value = localStorage.getItem(key);
-        var object = $.parseJSON(json);
+        var object = JSON.stringify(json);
         var makeSub = $("<ul>");
         makeLi.appendTo(makeSub);
         for (var n in object) {

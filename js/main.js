@@ -171,21 +171,16 @@ $('#displayData').on("click", function(){
         type: 'GET',
         dataType: 'json',
         success: function(response){
-            for (var i=0, j = response.jsonObj.length; i<j; i++){
-            var newId = response.jsonObj[i];
-                $(''+
-                    '<ul class="jsoncontacts">'+
-                        '<li>'+ newId.name +'</li>'+
-                        '<li>'+ newId.email +'</li>'+
-                        '<li>'+ newId.phone +'</li>'+
-                        '<li>'+ newId.birthday +'</li>'+
-                        '<li>'+ newId.relation +'</li>'+
-                        '<li>'+ newId.interests +'</li>'+
-                        '<li>'+ newId.pricerange +'</li>'+
-                        '<li>'+ newId.ideas +'</li>'+
-                    '</ul>'
-                ).appendTo('#dataview');
-            } 
+            $.each(response.rows, function(index, jsonObj){
+                var name = jsonObj.value.name;
+                var email = jsonObj.value.email;
+                var phone = jsonObj.value.phone;
+                var birthday = jsonObj.value.birthday;
+                var relation = jsonObj.value.relation;
+                var interests = jsonObj.value.interests;
+                var pricerange = jsonObj.value.pricerange;
+                $('#dataview').append($('<li>').text(name));
+            })
         }
     });
 }); 

@@ -187,10 +187,20 @@ $('#xml').on('click', function(){
         type: 'GET',
         dataType: 'xml',
         success: function(response){
-                  for(var i in response){
-                           var newId = Math.floor(Math.random() * 1000000001);
-                           localStorage.setItem(newId, JSON.stringify(response[i]));
-                  }
+            for(var i=0, j=response.contact.length; i<j; i++){
+                var newId = response.contact[i];
+                $(''+
+                    '<ul class="contacts">'+
+                        '<li>'+ newId.name +'</li>'+
+                        '<li>'+ newId.email +'</li>'+
+                        '<li>'+ newId.phone +'</li>'+
+                        '<li>'+ newId.birthday +'</li>'+
+                        '<li>'+ newId.relation +'</li>'+
+                        '<li>'+ newId.interests +'</li>'+
+                        '<li>'+ newId.pricerange +'</li>'+
+                    '</ul>'
+                ).appendTo('#xmllist');
+            }  
         }
     }); 
 });

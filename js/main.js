@@ -180,6 +180,7 @@ $('#displayData').on("click", function(){
                 var interests = jsonObj.value.interests;
                 var pricerange = jsonObj.value.pricerange;
                 $('#dataview').append($('<li>').text(name));
+                //.value possibly change to .doc? cant figure this out
             })
         }
     });

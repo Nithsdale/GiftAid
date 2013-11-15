@@ -171,20 +171,21 @@ $('#displayData').on("click", function(){
         type: 'GET',
         dataType: 'json',
         success: function(response){
-            $(response).find("jsonObj").each(function(){
-            var jsonObj = $(this);
+            for (var i=0, j = response.jsonObj.length; i<j; i++){
+            var newId = response.jsonObj[i];
                 $(''+
                     '<ul class="jsoncontacts">'+
-                        '<li>'+ jsonObj.find("name").text() +'</li>'+
-                        '<li>'+ jsonObj.find("email").text() +'</li>'+
-                        '<li>'+ jsonObj.find("phone").text() +'</li>'+
-                        '<li>'+ jsonObj.find("birthday").text() +'</li>'+
-                        '<li>'+ jsonObj.find("relation").text() +'</li>'+
-                        '<li>'+ jsonObj.find("interests").text() +'</li>'+
-                        '<li>'+ jsonObj.find("pricerange").text() +'</li>'+
+                        '<li>'+ newId.name +'</li>'+
+                        '<li>'+ newId.email +'</li>'+
+                        '<li>'+ newId.phone +'</li>'+
+                        '<li>'+ newId.birthday +'</li>'+
+                        '<li>'+ newId.relation +'</li>'+
+                        '<li>'+ newId.interests +'</li>'+
+                        '<li>'+ newId.pricerange +'</li>'+
+                        '<li>'+ newId.ideas +'</li>'+
                     '</ul>'
                 ).appendTo('#dataview');
-            }) 
+            } 
         }
     });
 }); 

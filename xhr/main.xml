@@ -9,4 +9,13 @@
         <interests>Art</interests>
         <pricerange>200</pricerange>
     </item>
+    <item>
+        <name>Jared Hooton</name>
+        <email>me@me.com</email>
+        <phone>419-708-1765</phone>
+        <birthday>4/4/81</birthday>
+        <relation>Parent</relation>
+        <interests>Games</interests>
+        <pricerange>300</pricerange>
+    </item>
 </contact>

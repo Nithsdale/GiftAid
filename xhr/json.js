@@ -1,7 +1,7 @@
 //Lindsay Hooton
 
-var json = {
-    "friend1": {
+{"jsonObj":[
+     {
         "name": ["Name:", "Lindsay Hooton"],
         "email": ["Email:", "me@me.com"],
         "phone": ["Phone:", "419-777-7777"],
@@ -11,7 +11,7 @@ var json = {
         "priceRange": ["Price Range:", "120"],
         "ideas": ["Ideas:","Star Wars"]
     },
-    "parent1": {
+     {
         "name": ["Name:", "Mom Mother"],
         "email": ["Email:", "me@me.com"],
         "phone": ["Phone:", "419-888-8888"],
@@ -21,7 +21,7 @@ var json = {
         "priceRange": ["Price Range:", "120"],
         "ideas": ["Ideas:","Star Trek"]
     },
-    "grandparent1": {
+     {
         "name": ["Name:", "Mothers Mother"],
         "email": ["Email:", "me@me.com"],
         "phone": ["Phone:", "419-888-8888"],
@@ -31,7 +31,7 @@ var json = {
         "priceRange": ["Price Range:", "120"],
         "ideas": ["Ideas:",""]
     },
-    "friend2": {
+    {
         "name": ["Name:", "Andy Twofor"],
         "email": ["Email:", "me@me.com"],
         "phone": ["Phone:", "419-888-8888"],
@@ -41,7 +41,7 @@ var json = {
         "priceRange": ["Price Range:", "120"],
         "ideas": ["Ideas:","Star Trek"]
     },
-    "sibling1": {
+     {
         "name": ["Name:", "Mom Mother"],
         "email": ["Email:", "me@you.com"],
         "phone": ["Phone:", "419-888-8888"],
@@ -51,7 +51,7 @@ var json = {
         "priceRange": ["Price Range:", "120"],
         "ideas": ["Ideas:","Pool supplies"]
     },
-    "sibling2": {
+     {
         "name": ["Name:", "Rich Mufford"],
         "email": ["Email:", "me@me.com"],
         "phone": ["Phone:", "419-888-8888"],
@@ -61,7 +61,7 @@ var json = {
         "priceRange": ["Price Range:", "220"],
         "ideas": ["Ideas:","Wine tasting"]
     },
-    "signifigantother": {
+     {
         "name": ["Name:", "Jared Hooton"],
         "email": ["Email:", "me@me.com"],
         "phone": ["Phone:", "419-888-8888"],
@@ -71,7 +71,7 @@ var json = {
         "priceRange": ["Price Range:", "120"],
         "ideas": ["Ideas:","Tools"]
     },
-    "coworker1": {
+     {
         "name": ["Name:", "Casey Goule"],
         "email": ["Email:", "you@me.com"],
         "phone": ["Phone:", "419-888-8888"],
@@ -81,7 +81,7 @@ var json = {
         "priceRange": ["Price Range:", "120"],
         "ideas": ["Ideas:","Pictures"]
     },
-    "coworker2": {
+     {
         "name": ["Name:", "Rachel Dut"],
         "email": ["Email:", "me@me.com"],
         "phone": ["Phone:", "419-888-8888"],
@@ -91,7 +91,7 @@ var json = {
         "priceRange": ["Price Range:", "120"],
         "ideas": ["Ideas:","Pencils"]
     },
-    "child1": {
+     {
         "name": ["Name:", "Boy Hooton"],
         "email": ["Email:", ""],
         "phone": ["Phone:", ""],
@@ -101,7 +101,7 @@ var json = {
         "priceRange": ["Price Range:", "200"],
         "ideas": ["Ideas:","Mickey mouse"]
     },
-    "child2": {
+     {
         "name": ["Name:", "Girl Hooton"],
         "email": ["Email:", ""],
         "phone": ["Phone:", ""],
@@ -111,4 +111,4 @@ var json = {
         "priceRange": ["Price Range:", "200"],
         "ideas": ["Ideas:","Princess stuff"]
     }
-};
+]}

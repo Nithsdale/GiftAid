@@ -168,12 +168,11 @@ $('#clearData').on("click", function(){
 $('#displayData').on("click", function(){
     $.ajax({
         url: 'xhr/json.js',
-        type: 'GET',
+        data: { get_param: 'value' },
         dataType: 'json',
         success: function(response){
             for (var i=0, j = response.jsonObj.length; i<j; i++){
             var newId = response.jsonObj[i];
-            var returnedData = JSON.parse(response);
                 $(''+
                     '<ul class="jsoncontacts">'+
                         '<li>'+ newId.name +'</li>'+

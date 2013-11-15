@@ -172,21 +172,21 @@ function defaultAdded (){
         type: 'GET',
         dataType: 'json',
         success: function(response){
-            $(response).find("json").each(function(){
-            var json = $(this);
+            for (var i=0, j = response.json.length; i<j; i++){
+            var newId = response.json[i];
                 $(''+
                     '<ul class="jsoncontacts">'+
-                        '<li>'+ json.find("name").text() +'</li>'+
-                        '<li>'+ json.find("email").text() +'</li>'+
-                        '<li>'+ json.find("phone").text() +'</li>'+
-                        '<li>'+ json.find("birthday").text() +'</li>'+
-                        '<li>'+ json.find("relation").text() +'</li>'+
-                        '<li>'+ json.find("interests").text() +'</li>'+
-                        '<li>'+ json.find("pricerange").text() +'</li>'+
-                        '<li>'+ json.find("ideas").text() +'</li>'+
+                        '<li>'+ newId.find("name").text() +'</li>'+
+                        '<li>'+ newId.find("email").text() +'</li>'+
+                        '<li>'+ newId.find("phone").text() +'</li>'+
+                        '<li>'+ newId.find("birthday").text() +'</li>'+
+                        '<li>'+ newId.find("relation").text() +'</li>'+
+                        '<li>'+ newId.find("interests").text() +'</li>'+
+                        '<li>'+ newId.find("pricerange").text() +'</li>'+
+                        '<li>'+ newId.find("ideas").text() +'</li>'+
                     '</ul>'
                 ).appendTo('#dataview');
-            }) 
+            } 
         }
     });
 };

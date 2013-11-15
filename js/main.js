@@ -176,14 +176,14 @@ function defaultAdded (){
             var newId = response.json[i];
                 $(''+
                     '<ul class="jsoncontacts">'+
-                        '<li>'+ newId.find("name").text() +'</li>'+
-                        '<li>'+ newId.find("email").text() +'</li>'+
-                        '<li>'+ newId.find("phone").text() +'</li>'+
-                        '<li>'+ newId.find("birthday").text() +'</li>'+
-                        '<li>'+ newId.find("relation").text() +'</li>'+
-                        '<li>'+ newId.find("interests").text() +'</li>'+
-                        '<li>'+ newId.find("pricerange").text() +'</li>'+
-                        '<li>'+ newId.find("ideas").text() +'</li>'+
+                        '<li>'+ newId.name +'</li>'+
+                        '<li>'+ newId.email +'</li>'+
+                        '<li>'+ newId.phone +'</li>'+
+                        '<li>'+ newId.birthday +'</li>'+
+                        '<li>'+ newId.relation +'</li>'+
+                        '<li>'+ newId.interests +'</li>'+
+                        '<li>'+ newId.pricerange +'</li>'+
+                        '<li>'+ newId.ideas +'</li>'+
                     '</ul>'
                 ).appendTo('#dataview');
             } 

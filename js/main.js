@@ -198,7 +198,7 @@ function defaultAdded (){
 //function for xml data w/ ajax
 $('#xml').on('click', function(){
    $.ajax({
-        url: 'main.xml',
+        url: 'xhl/main.xml',
         type: 'GET',
         dataType: 'xml',
         success: function(main){

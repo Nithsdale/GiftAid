@@ -34,7 +34,7 @@ $("#submit").click(function(event){
   console.log(checked);
 });
 
-
+/*
 //get the data entered in the fields and create sub lists
 function getData () {
     if (localStorage.length === 0) {
@@ -66,10 +66,10 @@ function getData () {
         makeButtons(localStorage.key(i), buttonLi);
     };
 };
-console.log(getData);
+console.log(getData);*/
 
 //on click get stored data 
-$('#displayData').on("click", getData);
+//$('#displayData').on("click", getData);
 //console.log(displayData);
 
 //get the values from the input fields and save
@@ -190,6 +190,8 @@ function defaultAdded (){
         }
     });
 };
+
+$('#displayData').on("click", defaultAdded);
 
 //function for xml data w/ ajax
 $('#xml').on('click', function(){

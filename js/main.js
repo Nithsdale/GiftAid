@@ -168,28 +168,26 @@ $('#clearData').on("click", function(){
 $('#displayData').on("click", function(){
     $.ajax({
         url: 'xhr/json.js',
-        data: { get_param: 'value' },
+        type: 'GET',
         dataType: 'json',
         success: function(response){
-            for (var i=0, j = response.jsonObj.length; i<j; i++){
-            var newId = response.jsonObj[i];
-            $.parseJSON(response);
+            $(response).find("jsonObj").each(function(){
+            var jsonObj = $(this);
                 $(''+
                     '<ul class="jsoncontacts">'+
-                        '<li>'+ newId.name +'</li>'+
-                        '<li>'+ newId.email +'</li>'+
-                        '<li>'+ newId.phone +'</li>'+
-                        '<li>'+ newId.birthday +'</li>'+
-                        '<li>'+ newId.relation +'</li>'+
-                        '<li>'+ newId.interests +'</li>'+
-                        '<li>'+ newId.pricerange +'</li>'+
-                        '<li>'+ newId.ideas +'</li>'+
+                        '<li>'+ jsonObj.find("name").text() +'</li>'+
+                        '<li>'+ jsonObj.find("email").text() +'</li>'+
+                        '<li>'+ jsonObj.find("phone").text() +'</li>'+
+                        '<li>'+ jsonObj.find("birthday").text() +'</li>'+
+                        '<li>'+ jsonObj.find("relation").text() +'</li>'+
+                        '<li>'+ jsonObj.find("interests").text() +'</li>'+
+                        '<li>'+ jsonObj.find("pricerange").text() +'</li>'+
                     '</ul>'
                 ).appendTo('#dataview');
-            } 
+            }) 
         }
     });
-});
+}); 
 
 //$('#displayData').on("click", defaultAdded);
 

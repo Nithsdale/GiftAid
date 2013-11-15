@@ -91,6 +91,7 @@ function storeData(key){
         items.ideas = ["Quick Ideas:", $('#ideas').val()];
         localStorage.setItem(id, JSON.stringify(items));
         alert("Sucessfully Added");
+        window.location.reload();
 };
 console.log(storeData);
 
@@ -165,43 +166,27 @@ $('#clearData').on("click", function(){
     };
 });
 
-//show and hide fields when displaying data
-function showHide (n){
-    switch(n) {
-        case "on":
-            $('#submit').hide();
-            $('#fieldOne').hide();
-            $('#fieldTwo').hide();
-            break;
-        case "off":
-            $('#submit').css("display","block");
-            $('#fieldOne').css("display","block");
-            $('#fieldTwo').css("display","block");
-            break;
-        default:
-            return false;
-    }
-};
-console.log(showHide);
-
 //function to add dummy data w/ ajax
 function defaultAdded (){
     $.ajax({
-        url: 'js/json.js',
+        url: 'xhr/json.js',
         type: 'GET',
         dataType: 'json',
         success: function(json){
+            $('#dataview').append;
             console.log(json);
         }
     });
 };
+
 //function for xml data w/ ajax
 $('#xml').on('click', function(){
    $.ajax({
-        url: 'xhl/main.xml',
+        url: 'xhr/main.xml',
         type: 'GET',
         dataType: 'xml',
         success: function(main){
+            $('#xmllist').append('<ul></ul>');
             console.log(main);
         }
     }); 

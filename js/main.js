@@ -97,7 +97,7 @@ console.log(storeData);
 //on click store data
 $('#submit').on("click", storeData);
 //console.log(submit);
-
+/*
 //turns the submit button into delete and edit buttons while displaying data
 function makeButtons(key, buttonLi) {
     var editButton = $("<a>");
@@ -117,7 +117,7 @@ function makeButtons(key, buttonLi) {
     buttonLi.appendTo(deleteButton);
 };
 console.log(makeButtons);
-
+*/
 //deleting the item or person in your list from the display data field
 function deleteItem() {
     var ask = confirm("Are you sure you want to delete?");
@@ -130,12 +130,11 @@ function deleteItem() {
     }
 };
 console.log(deleteItem);
-
+/*
 //edit the items of a persons information
 function editItem(){
     var value = localStorage.getItem(this.key);
     var items = JSON.parse(value);
-    showHide("on");
     $('#name').value = items.name[1];
     $('#email').value = items.email[1];
     $('#phone').value = items.phone[1];
@@ -152,7 +151,7 @@ function editItem(){
     editSubmit.key = this.key;
 };
 console.log(editItem);
-
+*/
 $('#clearData').on("click", function(){
     if(localStorage.length === 0){
         alert("No Information to clear.");
@@ -172,8 +171,8 @@ $('#displayData').on("click", function(){
         type: 'GET',
         dataType: 'json',
         success: function(response){
-            for (var i=0, j = response.json.length; i<j; i++){
-            var newId = response.json[i];
+            for (var i=0, j = response.jsonObj.length; i<j; i++){
+            var newId = response.jsonObj[i];
                 $(''+
                     '<ul class="jsoncontacts">'+
                         '<li>'+ newId.name +'</li>'+
@@ -213,7 +212,7 @@ $('#xml').on('click', function(){
                         '<li>'+ item.find("pricerange").text() +'</li>'+
                     '</ul>'
                 ).appendTo('#xmllist');
-            })
+            });
         }
     }); 
 });

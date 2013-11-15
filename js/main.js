@@ -198,21 +198,20 @@ $('#xml').on('click', function(){
         type: 'GET',
         dataType: 'xml',
         success: function(response){
-            for(var i=0, j=response.item.length; i<j; i++){
-                var newId = response.item[i];
-                console.log(response.item);
+        $(response).find("item").each(function(){
+            var item = $(this);
                 $(''+
                     '<ul class="contacts">'+
-                        '<li>'+ newId.name +'</li>'+
-                        '<li>'+ newId.email +'</li>'+
-                        '<li>'+ newId.phone +'</li>'+
-                        '<li>'+ newId.birthday +'</li>'+
-                        '<li>'+ newId.relation +'</li>'+
-                        '<li>'+ newId.interests +'</li>'+
-                        '<li>'+ newId.pricerange +'</li>'+
+                        '<li>'+ item.find("name").text() +'</li>'+
+                        '<li>'+ item.find("email").text() +'</li>'+
+                        '<li>'+ item.find("phone").text() +'</li>'+
+                        '<li>'+ item.find("birthday").text() +'</li>'+
+                        '<li>'+ item.find("relation").text() +'</li>'+
+                        '<li>'+ item.find("interests").text() +'</li>'+
+                        '<li>'+ item.find("pricerange").text() +'</li>'+
                     '</ul>'
                 ).appendTo('#xmllist');
-            }  
+            })
         }
     }); 
 });

@@ -189,7 +189,7 @@ $('#displayData').on("click", function(){
             } 
         }
     });
-};
+});
 
 //$('#displayData').on("click", defaultAdded);
 

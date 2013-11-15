@@ -172,18 +172,18 @@ function defaultAdded (){
         type: 'GET',
         dataType: 'json',
         success: function(response){
-            $(response).find("item").each(function(){
-            var item = $(this);
+            $(response).find("json").each(function(){
+            var json = $(this);
                 $(''+
                     '<ul class="jsoncontacts">'+
-                        '<li>'+ item.find("name").text() +'</li>'+
-                        '<li>'+ item.find("email").text() +'</li>'+
-                        '<li>'+ item.find("phone").text() +'</li>'+
-                        '<li>'+ item.find("birthday").text() +'</li>'+
-                        '<li>'+ item.find("relation").text() +'</li>'+
-                        '<li>'+ item.find("interests").text() +'</li>'+
-                        '<li>'+ item.find("pricerange").text() +'</li>'+
-                        '<li>'+ item.find("ideas").text() +'</li>'+
+                        '<li>'+ json.find("name").text() +'</li>'+
+                        '<li>'+ json.find("email").text() +'</li>'+
+                        '<li>'+ json.find("phone").text() +'</li>'+
+                        '<li>'+ json.find("birthday").text() +'</li>'+
+                        '<li>'+ json.find("relation").text() +'</li>'+
+                        '<li>'+ json.find("interests").text() +'</li>'+
+                        '<li>'+ json.find("pricerange").text() +'</li>'+
+                        '<li>'+ json.find("ideas").text() +'</li>'+
                     '</ul>'
                 ).appendTo('#dataview');
             }) 

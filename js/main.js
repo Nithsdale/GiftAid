@@ -166,7 +166,7 @@ $('#clearData').on("click", function(){
 });
 
 //function to add dummy data w/ ajax
-function defaultAdded (){
+$('#displayData').on("click", function(){
     $.ajax({
         url: 'xhr/json.js',
         type: 'GET',
@@ -191,7 +191,7 @@ function defaultAdded (){
     });
 };
 
-$('#displayData').on("click", defaultAdded);
+//$('#displayData').on("click", defaultAdded);
 
 //function for xml data w/ ajax
 $('#xml').on('click', function(){

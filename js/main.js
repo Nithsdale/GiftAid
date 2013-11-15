@@ -37,7 +37,6 @@ $("#submit").click(function(event){
 
 //get the data entered in the fields and create sub lists
 function getData () {
-    showHide("on");
     if (localStorage.length === 0) {
         alert("You haven't added anyone! So we've added some data for testing.");
         defaultAdded();
@@ -172,9 +171,11 @@ function defaultAdded (){
         url: 'xhr/json.js',
         type: 'GET',
         dataType: 'json',
-        success: function(json){
-            $('#dataview').append;
-            console.log(json);
+        success: function(response){
+                  for(var i in response){
+                           var newId = Math.floor(Math.random() * 1000000001);
+                           localStorage.setItem(newId, JSON.stringify(response[i]));
+                  }
         }
     });
 };
@@ -185,9 +186,11 @@ $('#xml').on('click', function(){
         url: 'xhr/main.xml',
         type: 'GET',
         dataType: 'xml',
-        success: function(main){
-            $('#xmllist').append('<ul></ul>');
-            console.log(main);
+        success: function(response){
+                  for(var i in response){
+                           var newId = Math.floor(Math.random() * 1000000001);
+                           localStorage.setItem(newId, JSON.stringify(response[i]));
+                  }
         }
     }); 
 });

@@ -200,6 +200,7 @@ $('#xml').on('click', function(){
         success: function(response){
             for(var i=0, j=response.contact.length; i<j; i++){
                 var newId = response.contact[i];
+                console.log(response.contact);
                 $(''+
                     '<ul class="contacts">'+
                         '<li>'+ newId.name +'</li>'+

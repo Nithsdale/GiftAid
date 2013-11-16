@@ -171,17 +171,21 @@ $('#displayData').on("click", function(){
         type: 'GET',
         dataType: 'json',
         success: function(response){
-            $.each(response.rows, function(index, jsonObj){
-                var name = jsonObj.value.name;
-                var email = jsonObj.value.email;
-                var phone = jsonObj.value.phone;
-                var birthday = jsonObj.value.birthday;
-                var relation = jsonObj.value.relation;
-                var interests = jsonObj.value.interests;
-                var pricerange = jsonObj.value.pricerange;
-                $('#dataview').append($('<li>').text(name));
-                //.value possibly change to .doc? cant figure this out
-            })
+                  for(var i=0, j=response.json.length; i<j; i++){
+                  var newId = response.json[i];
+                  $(''+
+                      '<ul class="jsoncontacts">'+
+                         '<li>'+ newId.find("name").text() +'</li>'+
+                         '<li>'+ newId.find("email").text() +'</li>'+
+                         '<li>'+ newId.find("phone").text() +'</li>'+
+                         '<li>'+ newId.find("birthday").text() +'</li>'+
+                         '<li>'+ newId.find("relation").text() +'</li>'+
+                         '<li>'+ newId.find("interests").text() +'</li>'+
+                         '<li>'+ newId.find("pricerange").text() +'</li>'+
+                         '<li>'+ newId.find("ideas").text() +'</li>'+
+                  '</ul>'
+                  ).appendTo('#dataview');
+            }
         }
     });
 }); 

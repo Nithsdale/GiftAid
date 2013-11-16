@@ -173,6 +173,7 @@ $('#displayData').on("click", function(){
         success: function(response){
                   for(var i=0, j=response.json.length; i<j; i++){
                   var newId = response.json[i];
+                  console.log(response.json);
                   $(''+
                       '<ul class="jsoncontacts">'+
                          '<li>'+ newId.find("name").text() +'</li>'+
